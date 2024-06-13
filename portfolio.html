@@ -1,444 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-image: linear-gradient(90deg, rgba(65, 164, 253, 1), rgba(14, 244, 255, 1));
-            color: white;
-            padding: 1em;
-            height: 150px;
-        }
-
-        .icon {
-            margin-top: 100px;
-            display: flex;
-            justify-content: center;
-            height: 100vh;
-        }
-        .profile {
-            margin-top: 140px;
-            border-bottom: 10px solid #ccc;
-            margin-bottom: 70px;
-        }
-        #job {
-            color: gray
-        }
-        h1 {
-            text-align: center;
-            margin: 0;
-        }
-        .container {
-            text-align: center;
-            width: 80%;
-            margin: auto;
-            overflow: hidden;
-        }
-
-        .sns {
-            display: flex;
-            justify-content: center;
-            margin-top: 60px;
-            margin-bottom: 40px;
-        }
-        .sns a {
-            margin-right: 40px;
-        }
-        .sns a:last-child {
-            margin-right: 0;
-        }
-        .portfolio {
-            display: flex; /* 要素を横並びにする */
-            justify-content: center; /* 要素を均等に配置 */
-            align-items: center; /* 要素を垂直方向に中央揃え */
-        }
-
-        .portfolio > div {
-            margin-left: 40px;
-        }
-
-        .project {
-            float: left;
-            width: 30%;
-            margin: 1.5%;
-            padding: 1em;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .contents.active img {
-            filter: invert(40%);
-        }
-        #content1 {
-            display: block;
-        }
-        #content2 {
-            display: block;
-        }
-        #content3 {
-            display: block;
-        }
-        .p_language {
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-        .project h3 {
-            margin-top: 0;
-        }
-
-        .icon {
-            text-align: left;
-        }
-
-        .sns img:hover {
-            filter: invert(30%);
-        }
-
-        .contents img:hover {
-            filter: invert(50%);
-        }
-        .background-container {
-            text-align: center;
-            height: 100vh;
-        }
-
-        .background {
-            text-align: left;
-            width: 100%;
-            margin: 5.0%;
-            padding: 1em;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        footer {
-            margin-top: 100px;
-            background-color:gray;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-
-        .contact,
-        .privacy,
-        .credits {
-            margin-bottom: 20px;
-        }
-
-        .contact h3,
-        .privacy a,
-        .credits p {
-            margin-bottom: 10px;
-        }
-
-        .privacy a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-        }
-
-        .back-to-top {
-            color: #fff;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 20px;
-        }
-
-        .back-to-top:hover {
-            text-decoration: underline;
-        }
-
-        /* Responsive Styles */
-
-        @media(max-width: 768px) {
-
-        .container {
-        width: 90%;
-        }
-
-        .profile {
-        text-align: center;
-        }
-
-        #job {
-        text-align: center; 
-        }
-
-        .sns {
-        flex-direction: column;
-        }
-
-        .sns a {
-        margin: 10px 0;
-        }
-
-        .portfolio {
-        flex-direction: column; 
-        }
-
-        .project {
-        width: 80%;
-        margin: 10px auto;
-        }
-
-        }
-
-        @media(max-width: 500px) {
-
-        .profile, 
-        #job {  
-        font-size: 14px;
-        }
-
-        .sns img {
-        width: 40px;
-        height: 40px;
-        }
-
-        .project {
-        width: 90%;
-        }
-
-        }
-
-        body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    padding: 20px;
-}
-
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-}
-
-h1, h2, h3 {
-    margin-bottom: 20px;
-    color: #333;
-}
-
-p {
-    margin-bottom: 10px;
-    color: #666;
-}
-
-#content1, #content2 {
-    margin-bottom: 40px;
-}
-
-.p_language, .project {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.project {
-    flex: 1 1 calc(33.333% - 20px);
-    background-color: #e0f7fa; /* 背景色を淡い青に */
-    border: 1px solid #00acc1; /* 縁を少し濃い青に */
-    border-radius: 8px; /* 角を丸める */
-    padding: 15px; /* 内側の余白 */
-    margin: 10px 0; /* 外側の余白 */
-    font-size: 16px; /* フォントサイズを調整 */
-    color: #00796b; /* 文字色を濃い緑に */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 影を追加 */
-    transition: transform 0.3s, box-shadow 0.3s; /* ホバー時のアニメーション */
-    text-align: center; /* テキストを中央揃え */
-}
-
-.project:hover {
-    transform: translateY(-5px); /* ホバー時に少し持ち上げる */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* ホバー時の影を強化 */
-    background-color: #b2ebf2; /* ホバー時に背景色を少し変える */
-}
-
-@media screen and (max-width: 600px) {
-    .project {
-        flex: 1 1 100%;
-    }
-}
-
-    </style>
+    <title>Ryoma Hosoda's Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
     <header>
-        <div class="icon"><img src="img/icon.png" alt="Image" width="200" height="200"></div>
-    </header>
-    <div class="container">
-        <div class="profile">
+        <div class="container">
             <h1>Ryoma Hosoda</h1>
-            <div id="job">
-                <p>　</p>
-                <p>University Student</p>
-                <p>Web Engineer</p>
-                <p><img src="img/location_icon.gif" alt="location icon" width="18" height="18"> Kyoto, Japan</p>
-            </div>
-            <p>I am a student at Doshisha University, majoring in Information Technology. </p>
-            <p>My hobbies are going to the gym, playing futsal, reading manga.</p>
-            <a href="https://github.com/ryry22/" target="_blank">My github account ← click here!</a>
-            <div class="sns">
-                <a href="https://twitter.com/@HRyoma2002" target="_blank"><img src="img/twitter.png" alt="twitter icon" width="50" height="50"></a>
-                <a href="https://instagram.com/ryoma_7_0222" target="_blank"><img src="img/insta.png" alt="instagram icon" width="50" height="50"></a>
-                <a href="https://www.facebook.com/profile.php?id=100016603182457" target="_blank"><img src="img/facebook.png" alt="facebook icon" width="50" height="50"></a>
+            <p>University Student | Web Engineer</p>
+            <p><img src="img/location_icon.gif" alt="location icon" width="18" height="18" class="filter-image"> Kyoto, Japan</p>
+            <div class="icon">
+                <img src="img/icon.png" alt="Image" width="200" height="200">
             </div>
         </div>
-        <div class="portfolio">
-            <div class="contents" id="show1">
-                <img src="img/skills.png" alt="skills" width="50" height="60">
-            </div>
-            <div class="contents" id="show2">
-                <img src="img/project.png" alt="skills" width="50" height="60">
-            </div>
-            <div class="contents" id="show3">
-                <img src="img/background.png" alt="skills" width="50" height="60">
-            </div>
-        </div>
-        <div id="content1">
-            <h3>My skills</h3>
-            <div class="p_language">
-                <div class="project">
-                    Java
-                </div>
-                <div class="project">
-                    Python
-                </div>
-                <div class="project">
-                    C
-                </div>
-                <div class="project">
-                    Ruby on Rails
-                </div>
-                <div class="project">
-                    HTML/CSS
-                </div>
-                <div class="project">
-                    Javascript
-                </div>
-            </div>
-        </div>
+    </header>
 
-        <div id="content2">
-            <h3>My projects</h3>
-            <div class="project">
-                Python : Djangoを用いたToDoカレンダー
-            </div>
-            <div class="project">
-                Python : webスクレイピング
-            </div>
-            <div class="project">
-                Python : 自然言語処理＋機械学習によるnewsのカテゴリ分類機
-            </div>
-            <div class="project">
-                C : GBAのエミュレータでゲームの組み込みプログラミング
-            </div>
-            <div class="project">
-                Ruby on Rails : bookers-webアプリケーション
-            </div>
-            <div class="project">
-                Java : 深層学習によるirisデータの分類プログラム
-            </div>
-            <div class="project">
-                Java : ポーカーゲーム
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I am a student at Doshisha University, majoring in Information Technology. My hobbies are going to the gym, playing futsal, reading manga.</p>
+            <a href="https://github.com/your-github-profile" class="btn">My GitHub Account</a>
+        </div>
+        <div class="sns">
+            <a href="https://twitter.com/@HRyoma2002" target="_blank"><img src="img/twitter.png" alt="twitter icon" width="50" height="50"></a>
+            <a href="https://instagram.com/ryoma_7_0222" target="_blank"><img src="img/insta.png" alt="instagram icon" width="50" height="50"></a>
+            <a href="https://www.facebook.com/profile.php?id=100016603182457" target="_blank"><img src="img/facebook.png" alt="facebook icon" width="50" height="50"></a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>My Skills<img src="img/skills.png" alt="skills" width="50" height="60" class="image-with-margin"></h2>
+            <div class="skills-grid">
+                <div class="skill">Java</div>
+                <div class="skill">Python</div>
+                <div class="skill">C</div>
+                <div class="skill">Ruby on Rails</div>
+                <div class="skill">HTML/CSS</div>
+                <div class="skill">JavaScript</div>
             </div>
         </div>
+    </section>
 
-        <div id="content3">
-            <div class="background-container">
-                <h3>My backgrounds</h3>
-                <div class="background">
-                    ・2017.4　同志社国際高校　入学
-                </div>
-                <div class="background">
-                    ・2020.3　同志社国際高校　卒業
-                </div>
-                <div class="background">
-                    ・2020.4　同志社大学 理工学部 情報システムデザイン学科　入学
-                </div>
-                <div class="background">
-                    ・2024.3　同志社大学 理工学部 情報システムデザイン学科　卒業
-                </div>
-                <div class="background">
-                    ・2024.4　同志社大学 大学院 理工学研究科 情報工学専攻　在学中
-                </div>
-            </div>
+    <section id="projects">
+        <div class="container">
+            <h2>My Projects <img src="img/project.png" alt="skills" width="50" height="60" class="image-with-margin"></h2>
+            <ul>
+                <li>Python : Djangoを用いたToDoカレンダー</li>
+                <li>Python : webスクレイピング</li>
+                <li>Python : 自然言語処理＋機械学習によるnewsのカテゴリ分類機</li>
+                <li>C : GBAのエミュレータでゲームの組み込みプログラミング</li>
+                <li>Ruby on Rails : bookers-webアプリケーション</li>
+                <li>Java : 深層学習によるirisデータの分類プログラム</li>
+                <li>Java : ポーカーゲーム</li>
+            </ul>
         </div>
+    </section>
 
-    </div>
-    <script>
-        content2.style.display = "none";
-        content3.style.display = "none";
-        document.addEventListener("DOMContentLoaded", function () {
-            var toggleButton1 = document.getElementById("show1");
-            var content1 = document.getElementById("content1");
-            var toggleButton2 = document.getElementById("show2");
-            var content2 = document.getElementById("content2");
-            var toggleButton3 = document.getElementById("show3");
-            var content3 = document.getElementById("content3");
-            var show_num = 0;
-            toggleButton1.classList.add("active");
-            toggleButton1.addEventListener("click", function () {
-                toggleButton1.classList.add("active");
-                toggleButton2.classList.remove("active");
-                toggleButton3.classList.remove("active");
-                if (content1.style.display === "none") {
-                    content1.style.display = "block";
-                    content2.style.display = "none";
-                    content3.style.display = "none";
-                }
-            });
-            toggleButton2.addEventListener("click", function () {
-                toggleButton1.classList.remove("active");
-                toggleButton2.classList.add("active");
-                toggleButton3.classList.remove("active");
-                if (content2.style.display === "none") {
-                    content1.style.display = "none";
-                    content2.style.display = "block";
-                    content3.style.display = "none";
-                }
-            });
-            toggleButton3.addEventListener("click", function () {
-                toggleButton1.classList.remove("active");
-                toggleButton2.classList.remove("active");
-                toggleButton3.classList.add("active");
-                if (content3.style.display === "none") {
-                    content1.style.display = "none";
-                    content2.style.display = "none";
-                    content3.style.display = "block";
-                }
-            });
-        });
-    </script>
+    <section id="background">
+        <div class="container">
+            <h2>My Background<img src="img/background.png" alt="skills" width="60" height="60" class="image-with-margin"></h2>
+            <ul>
+                <li>2017.4 同志社国際高校 入学</li>
+                <li>2020.3 同志社国際高校 卒業</li>
+                <li>2020.4 同志社大学 理工学部 情報システムデザイン学科 入学</li>
+                <li>2024.3 同志社大学 理工学部 情報システムデザイン学科 卒業</li>
+                <li>2024.4 同志社大学 大学院 理工学研究科 情報工学専攻 在学中</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <p><img src="img/mail.gif" alt="location icon" width="18" height="18"> Email: h.ryoma2002@icloud.com</p>
+            <p><img src="img/phone.gif" alt="location icon" width="18" height="18"> Phone: 080-9298-5237</p>
+        </div>
+    </section>
+
     <footer>
-        <div class="contact">
-            <h3>Contact Me</h3>
-            <p><img src="img/mail.gif" alt="mail icon" width="15" height="15"> Email: h.ryoma2002@icloud.com</p>
-            <p><img src="img/phone.gif" alt="mail icon" width="15" height="15"> Phone: 080-9298-5237</p>
+        <div class="container">
+            <p>© 2023 Ryoma Hosoda. All rights reserved.</p>
+            <a href="#top">Back to Top</a>
         </div>
-        <!-- <div class="privacy">
-            <a href="/privacy-policy">Privacy Policy</a>
-            <a href="/terms-of-use">Terms of Use</a>
-        </div> -->
-        <div class="credits">
-            <p>&copy; 2023 Ryoma Hosoda. All rights reserved.</p>
-            <!-- <p>Website template by <a href="https://example.com" target="_blank">Example Templates</a></p> -->
-        </div>
-        <a href="#top" class="back-to-top">Back to Top</a>
     </footer>
 </body>
-
 
 </html>
